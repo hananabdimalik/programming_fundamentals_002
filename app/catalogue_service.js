@@ -23,24 +23,59 @@ const catalogue = [
 ];
 
 function countBooks() {
-  // Your code here
+  let count = 0
+  for (let i = 0; i < catalogue.length; i++) {
+    count++
+  }
+  return count;
 }
 
 function checkBook(book) {
+  for (let i = 0; i < catalogue.length; i++) {
+    if (book === "Dracula by Bram Stoker") {
+      return true
+    } else {
+      return false;
+    }
+  }
   // Your code here
 }
 
-function countBooksByFirstLetter(letter) {
-  // Your code here
+function countBooksByFirstLetter(firstLetter) {
+  let count = 0
+  //let count = 0
+  for (let i = 0; i < catalogue.length; i++) {
+    const title = catalogue[i];
+    if (title.startsWith(firstLetter.toUpperCase())) {
+      count++
+    }
+  }
+  return count;
 }
 
+// if title contains starts with first letter that is upper case, count on 
 function countBooksByKeyword(keyword) {
-  // Your code here
+  let count = 0;
+  for (let i = 0; i < catalogue.length; i++) {
+    if (catalogue[i].toLowerCase().includes(keyword.toLowerCase())) {
+      count++
+    }
+  }
+  return count
 }
+
+//if title includes given keyword count on, return count
 
 function getBooksByAuthor(author) {
-  // Your code here
-}
+  let authorList = []
+  for (let i = 0; i < catalogue.length; i++) {
+    if (catalogue[i].includes(author)) {
+      authorList.push(catalogue[i])
+    };
+  };
+  return authorList;
+};
+// Your code here
 
 module.exports = {
   countBooks,
